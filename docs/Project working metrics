@@ -17,10 +17,6 @@ Modern SOC teams face:
 •	Slow manual triage processes
 •	Lack of consistent investigation steps
 
-
-
-
-
 This project solves these by automating:
 	Threat Intelligence Lookups.
 	Severity Scoring.

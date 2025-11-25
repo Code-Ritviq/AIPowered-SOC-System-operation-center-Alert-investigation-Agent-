@@ -26,16 +26,16 @@ Every module in this repository mirrors how human analysts think and act during 
 SOC Autonomous Agent/
 │
 ├── src/
-│   ├── main.py
-│   ├── logic_engine.py
-│   ├── enrichment/
-│   ├── playbooks/
-│   ├── reporting/
-│   └── utils/
+│   ├── Script.py
+│   ├── Main.txt
+│   ├── enrichment/(Agent Embedded)
+│   ├── playbooks/ (Agent Embedded)
+│   ├── reporting/ (Agent Embedded)
+│   
 │
 ├── config/
-│   ├── settings.yaml
-│   ├── api_keys.example.json
+│   ├── settings.yaml (Optional)
+│   ├── api_keys.example.json (Optional in case using Paid LLM's)
 │
 ├── docs/
 │   ├── PROJECT_DESCRIPTION.md

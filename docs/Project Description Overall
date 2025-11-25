@@ -1,0 +1,84 @@
+Autonomous SOC Agent System for Real-Time Threat Triage & Enrichment
+Cybersecurity teams are drowning in alerts. Anyone who has ever worked on the SOC floor knows that half the battle is not understanding threats, it’s dealing with the constant repetitive workload that comes with triage. Alerts come in from every direction: firewalls, EDRs, email gateways, cloud logs, behavioral systems, and sometimes even in-house scripts. Unfortunately, the time analysts actually spend on meaningful investigation is limited because they’re stuck repeating the same enrichment steps over and over. I wanted to build something that helps in this exact area something that doesn’t just “look good on paper” but can genuinely reduce the everyday pain SOC analysts face.
+
+What Problem I Wanted to Solve
+Anyone who has worked in a SOC knows the pain: repetitive triage steps, switching between multiple tools, slow enrichment, and inconsistent investigation quality. Small teams especially struggle with alert fatigue.
+
+My goal was simple:
+Build a system that takes care of the repetitive stuff so analysts can focus on actual decision-making.
+
+What I Built
+The project is a Smart SOC Automation & Response platform that can:
+
+1- Take an incoming alert,
+
+2- Enrich it instantly,
+
+3- Map it to MITRE ATT&CK,
+
+4- Run the correct playbook based on the alert type, and even perform safe automated actions when required.
+
+Instead of being a “script collection,” this behaves like a mini-SOAR platform.
+
+Key Features
+Automated Enrichment The system automatically pulls WHOIS, IP reputation, threat intel scores, geolocation, and other useful context. This usually takes analysts several minutes per alert — now it’s done in seconds.
+
+Playbook-Based Investigation Depending on the alert, it triggers the appropriate workflow (phishing, malware, suspicious login, scanning activity, etc.). Each step is logged clearly so the investigation feels structured and traceable.
+
+Optional Automated Response For high-risk cases, the system can:
+
+block IPs,
+isolate endpoints,
+reset credentials,
+quarantine items.
+All of this is controlled through rules so it doesn’t take action blindly.
+
+Clean, Central Dashboard Everything including enrichment, decisions, logs, and evidence is brought together in a single place so analysts don’t need to jump between tools.
+
+Built-in Evidence & Reporting Every investigation automatically generates a full timeline and a clean JSON/summary report. This makes post-incident reviews much easier.
+
+Auto-Generated Reports At the end of each investigation, the system produces:
+
+A clean summary
+MITRE mapping
+Confidence score
+Playbook steps executed
+Actions taken
+Recommended next steps This saves analysts from spending 30–40 minutes writing incident notes manually.
+How the System Works
+An alert comes in.
+
+The system identifies its type and severity.
+It enriches all IOCs.
+It picks the right playbook to run.
+Each step of the investigation is logged.
+A final risk score is calculated.
+Response actions are triggered if allowed.
+Everything is documented automatically.
+The flow is designed to feel like a real SOC workflow, just faster and more consistent.
+What Makes This Project Stand Out
+There are dozens of automation tools in cybersecurity, but most of them require heavy setup, enterprise integrations, and a steep learning curve. What I built here feels more human-driven. It is small, clean, predictable, and extremely useful for teams who want automation without complexity.
+
+Some points that make it unique:
+
+The logic is written exactly like a human analyst thinks.
+Playbooks are intelligent, not just linear scripts.
+It works on real-world alert types that SOC teams deal with daily.
+Everything is transparent , no “black box” AI decisions.
+Reporting is simple and analyst-friendly, not over-engineered.
+This is not just a “mini SOAR”; it is a practical SOC companion.
+
+Real-World Impact
+If used inside a real organization, this framework would:
+
+Reduce alert handling time from minutes to seconds,
+Standardize investigations across analysts,
+Eliminate errors caused by manual work,
+Improve consistency in incident documentation,
+Cut down response time for high-severity alerts, and relieve analysts from exhausting repetitive tasks.
+Even more importantly, it helps reduce alert fatigue, allowing SOC teams to focus on what matters: the actual threats.
+
+Final Thoughts
+I built this project from the perspective of someone who understands the daily grind of SOC analysts. The goal wasn’t to create something flashy; it was to create a system that genuinely solves a real problem. The result is an automation framework that feels reliable, practical, and genuinely helpful.
+
+It brings together enrichment, MITRE mapping, investigation logic, and automated response in a way that empowers analysts instead of replacing them. This is the type of tool I wish every SOC team, especially smaller ones, had access to.

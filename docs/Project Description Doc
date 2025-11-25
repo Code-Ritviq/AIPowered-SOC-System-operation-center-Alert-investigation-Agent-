@@ -1,0 +1,136 @@
+Kaggle Agents Capstone Project Documentation
+Title: AI-Powered SOC Alert Investigation & Automation Pipeline
+Author: Ritviq Sharma
+Category: Enterprise Agents (SOC Automation / Cybersecurity)
+________________________________________
+1. Executive Summary
+This project is a fully automated Security Operations Center (SOC) AI system built using a chain of specialized agents. The system takes raw security logs and processes them through:
+1.	Enrichment Agent – gathers additional threat intelligence
+2.	Triage Agent – assigns risk scoring and severity
+3.	Recommendation Agent – suggests appropriate security actions
+4.	Reporting Module – generates final actionable output
+This project simulates a real-world SOC system and fulfills “Enterprise Agents” category by demonstrating the use of autonomous agents in automating cybersecurity workflows.
+________________________________________
+2. Problem Statement
+Modern SOC teams face:
+•	Too many alerts
+•	Not enough analysts
+•	Slow manual triage processes
+•	Lack of consistent investigation steps
+
+
+
+
+
+This project solves these by automating:
+	Threat Intelligence Lookups.
+	Severity Scoring.
+	Response Recommendations.
+	Report Generation
+
+Using a chain of autonomous agents.
+________________________________________
+3. Solution Overview (Architecture)
+The solution consists of three AI agents performing sequential tasks.
+3.1 Enrichment Agent
+•	Enhances logs with mock threat intelligence (IP reputation, Domain reputation, Malware Hash reputation)
+•	Adds GeoIP information
+•	Produces an “enriched” log object
+3.2 Triage Agent
+•	Applies a weighted scoring formula
+•	Outputs a triage score
+•	Assigns severity category (Low/Medium/High/Critical)
+3.3 Recommendation Agent
+•	Based on severity + enrichment results
+•	Suggests real-world SOC actions
+•	Examples:
+o	Block IP
+o	Isolate endpoint
+o	Monitor activity
+o	No action
+3.4 Pipeline Runner
+•	Executes all agents in sequence
+•	Processes top-N alerts
+•	Exports final results
+________________________________________
+4. Dataset Description
+The project uses a synthetic dataset representing SOC alerts with fields:
+•	timestamp
+•	src_ip
+•	dst_ip
+•	domain
+•	hash
+•	event_type
+•	severity
+These logs resemble:
+- Firewall Alerts
+- IDS/IPS Events
+- EDR Detections
+- Malware Hash Matches
+________________________________________
+5. Detailed Agent Logic (Explained Simply)
+5.1 Enrichment Agent
+Adds extra information:
+•	IP Risk Score (0–100)
+•	Domain Risk Score
+•	Hash Malware Score
+•	GeoIP Country
+Uses deterministic hashing to convert an IP into a repeatable risk value.
+5.2 Triage Agent
+Calculates risk like this:
+final_score =
+    ip_risk * 0.6 +
+    domain_risk * 0.2 +
+    hash_risk * 0.2
+Then severity is assigned:
+•	0–20 → Low
+•	21–50 → Medium
+•	51–80 → High
+•	81–100 → Critical
+5.3 Recommendation Agent
+Rules include:
+•	If malicious hash → isolate host
+•	If high IP risk → block IP
+•	If suspicious domain → activate phishing workflow
+•	If low → monitor traffic
+________________________________________
+6. Results & Outputs
+Final output CSV includes:
+•	timestamp
+•	src_ip
+•	dst_ip
+•	country
+•	ip_risk
+•	domain_risk
+•	hash_risk
+•	triage_score
+•	severity
+•	recommended_action
+________________________________________
+7. Installation & Running Instructions
+Step 1 – Install dependencies
+pip install pandas numpy
+Step 2 – Place input file
+Save your CSV in the same folder as:
+input_logs.csv
+Step 3 – Run the pipeline
+python notebook_script.py
+Step 4 – View Output
+Generated:
+output.csv
+________________________________________
+8. Future Improvements
+•	Integrate real threat intel APIs (VirusTotal, AbuseIPDB)
+•	Replace mock agents with LLM-powered autonomous agents
+•	Build Streamlit dashboard
+•	Add alert clustering using ML
+________________________________________
+9. Conclusion
+This project demonstrates:
+•	Real-life SOC automation
+•	Use of multiple autonomous agents
+•	Full end‑to‑end alert enrichment, triage, and response
+•	Enterprise-grade applicability
+________________________________________
+Appendix A – System Diagram
+RAW LOGS → Enrichment Agent → Triage Agent → Response Agent → Report
